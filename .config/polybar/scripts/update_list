@@ -1,0 +1,14 @@
+#! /bin/bash
+
+send_notification() {
+	HEAD="Available updates"
+	BODY=$(checkupdates)
+	dunstify -h string:x-canonical-private-synchronous:update_list \
+		"$HEAD" "$BODY" -u NORMAL
+}
+
+handle_action() {
+	send_notification
+}
+
+handle_action
