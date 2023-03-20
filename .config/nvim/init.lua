@@ -27,6 +27,7 @@ require('lazy').setup({
 
   'tpope/vim-sleuth',
 
+  "catppuccin/nvim", name = "catppuccin",
 
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -453,3 +454,5 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 
 vim.keymap.set('n', '<F2>', [[:NERDTreeToggle<CR>]], { desc = "NERDTree" })
+
+vim.cmd.colorscheme "catppuccin"
