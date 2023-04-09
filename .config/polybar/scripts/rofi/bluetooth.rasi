@@ -17,7 +17,7 @@ window {
 	border:							0px;
 	border-color:					@ac;
     border-radius:                  12px;
-	width:							400px;
+	width:							500px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -26,7 +26,7 @@ window {
 prompt {
     enabled: 						true;
 	padding: 						10px 15px 10px 15px;
-	background-color: 				@bg2;
+	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
 	font:							"Iosevka Nerd Font 10";
 }
@@ -37,7 +37,7 @@ textbox-prompt-colon {
 	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
 	expand: false;
-	str: "直";
+	str: "";
 }
 
 entry {
@@ -46,14 +46,14 @@ entry {
     placeholder-color:              #FFFFFF;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search...";
-    padding:                        10px;
+    placeholder:                    "find...";
+	padding: 						10px;
     border-radius:                  0px 12px 12px 0px;
     blink:                          true;
 }
 
 inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
+	children: 						[ prompt, entry ];
     background-color:               @bg2;
     text-color:                     #FFFFFF;
     expand:                         false;
@@ -67,7 +67,7 @@ listview {
     background-color:               @al;
     padding:                        10px 10px 10px 10px;
     columns:                        1;
-    lines:                          8;
+    lines:                          15;
     spacing:                        5px;
     cycle:                          true;
     dynamic:                        true;
@@ -89,7 +89,7 @@ element {
     text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  0px;
-    padding:                        6px 6px 6px -5px;
+    padding:                        6px 6px 6px -20px;
 }
 
 element-icon {
@@ -117,4 +117,3 @@ element selected {
     border-radius:                  12px;
     border-color:                  	@bg1;
 }
-
