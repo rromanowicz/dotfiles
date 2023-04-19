@@ -1,0 +1,157 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_sidebar.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+#sidebar-box{
+  --sidebar-background-color: var(--toolbar-bgcolor) !important;
+  --sidebar-transition-delay: 500ms;
+  --sidebar-width: 48px;
+  --sidebar-hover-width: calc(calc(calc(var(--sidebar-width) - 0.65em) * 6) + 0.65em);
+  /* If you want to adjust sidebar-hover-width, change the default number multiplied here (which is 6 - follows the number of icon-only pinned tabs per row) */
+  --autohide-sidebar-delay: 250ms; /* Delay before hiding the sidebar */
+  position: relative;
+  min-width: var(--sidebar-width) !important;
+  width: var(--sidebar-width) !important;
+  max-width: var(--sidebar-width) !important;
+  margin-top: -1px;
+  z-index:1;
+}
+
+#sidebar-title{ 
+  display: none 
+}
+#sidebar-box[positionend]{ 
+  direction: rtl 
+}
+#sidebar-box[positionend] > *{ 
+  direction: ltr
+}
+
+#sidebar-box[positionend]:-moz-locale-dir(rtl){ 
+  direction: ltr
+}
+#sidebar-box[positionend]:-moz-locale-dir(rtl) > *{ 
+  direction: rtl 
+}
+
+
+#sidebar-splitter{ 
+  display: none !important;
+}
+
+#sidebar,
+#sidebar-header{
+  transition: box-shadow 0.1s linear, min-width 25ms linear var(--autohide-sidebar-delay) !important;
+  min-width: var(--sidebar-width) !important;
+  will-change:  min-width !important;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3) !important;
+  border-right: 1px solid var(--chrome-content-separator-color) !important;
+}
+
+#sidebar-box:hover > #sidebar,
+#sidebar-box:hover > #sidebar-header{
+  transition: box-shadow 0.1s linear, min-width 50ms linear var(--autohide-sidebar-delay) !important;
+  transition-delay: var(--sidebar-transition-delay) !important;
+  min-width: var(--sidebar-hover-width) !important;
+  box-shadow: 3px 8px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+#sidebar-box:hover > #sidebar-header{
+  min-width: calc(var(--sidebar-hover-width) + 13px) !important;
+}
+
+#sidebar-box {
+  box-shadow: 0 20px 0 rgba(0, 0, 0, 0.25) !important;
+  transition: box-shadow 0.1s linear !important;
+}
+
+#sidebar-box:hover {	
+  box-shadow: 3px 16px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+.sidebar-panel{
+  background-color: transparent !important;
+  color: var(--newtab-text-primary-color) !important;
+}
+
+.sidebar-panel #search-box{
+  -moz-appearance: none !important;
+  background-color: rgba(249,249,250,0.1) !important; 
+  color: inherit !important;
+}
+
+/* Add sidebar background */
+
+#sidebar,
+#sidebar-header {
+  background-color: var(--lwt-accent-color) !important;
+  border-bottom: none !important;
+  background-image: var(--lwt-additional-images);
+  background-position: auto;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+#sidebar-box:not([positionend]):hover ~ #appcontent #statuspanel{ inset-inline: auto 0px !important; }
+#sidebar-box:not([positionend]):hover ~ #appcontent #statuspanel-label{ margin-inline: 0px !important; border-left-style: solid !important; }
+
+
+#browser {
+  --sidebar-border-color: var(--chrome-content-separator-color) !important;
+}
+
+#sidebar-icon{
+  -moz-box-ordinal-group: 0;
+  margin: 0px 4px;
+  min-height: 16px !important;
+  min-width: 16px !important;
+}
+
+#sidebar-box #sidebar-close,
+#sidebar-box #sidebar-switcher-arrow {
+  transition: visibility 25ms linear var(--autohide-sidebar-delay) !important;
+  will-change: visibility !important;
+  visibility: collapse !important;
+}
+
+#sidebar-box:hover #sidebar-close,
+#sidebar-box:hover #sidebar-switcher-arrow {
+  transition: visibility 50ms linear var(--autohide-sidebar-delay) !important;
+  transition-delay: var(--sidebar-transition-delay) !important;
+  visibility: visible !important;
+}
+
+#sidebar-header{
+  height: 40px !important;
+  padding: 0em 0.75em;
+}
+
+#sidebar-header::before {
+	content: "";
+	display: inline-block;
+	height: inherit;
+	width: calc(100% + 1.5em - 4px);
+  background-color: var(--toolbar-bgcolor) !important;
+  margin-left: -0.75em;
+}
+
+#sidebar-header::after{
+  content:"";
+  display: block;
+  position:absolute;
+  height: 1px;
+  width: calc(var(--sidebar-width) - 16px) !important;
+  margin-top: -8px;
+  background-color: var(--chrome-content-separator-color);
+  transition: width 25ms linear var(--autohide-sidebar-delay) !important;
+  will-change: width !important;
+}
+
+#sidebar-box:hover #sidebar-header::after{
+  transition: width 50ms linear var(--autohide-sidebar-delay) !important;
+  transition-delay: var(--sidebar-transition-delay) !important;
+  width: calc(var(--sidebar-hover-width) - 8px) !important;
+}
+
+#sidebar-switcher-target{
+  margin-left: calc(0em - calc(100% + 0.75em)) !important;
+}
