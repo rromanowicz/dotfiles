@@ -92,6 +92,7 @@ local config = {
       importOrder = {
         "java",
         "javax",
+        "jakarta",
         "com",
         "org"
       },
@@ -115,13 +116,16 @@ local config = {
     allow_incremental_sync = true,
   },
   init_options = {
-    bundles = {},
+    bundles = {
+      vim.fn.glob(config_path .. "com.microsoft.java.debug.plugin-*.jar", 1)
+    },
   },
 }
 
 config['on_attach'] = function(client, bufnr)
- require'keymap'.map_java_keys(bufnr);
-  require "lsp_signature".on_attach({
+  require'jdtls'.setup_dap({ hotcodereplace = 'auto' })
+  require'keymap'.map_java_keys(bufnr);
+  require'lsp_signature'.on_attach({
     bind = true,
     floating_window_above_cur_line = false,
     padding = '',
