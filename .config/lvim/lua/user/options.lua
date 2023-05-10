@@ -1,6 +1,6 @@
--- lvim.transparent_window = true
+-- lvim.transparent_window = false
 
-
+lvim.colorscheme = "catppuccin-macchiato"
 -- lvim.colorscheme = "darkplus"
 -- lvim.colorscheme = "poimandres"
 lvim.log.level = "warn"
@@ -8,7 +8,7 @@ lvim.builtin.alpha.active = true
 -- lvim.lsp.diagnostics.float.focusable = true
 lvim.reload_config_on_save = false
 lvim.builtin.illuminate.active = false
-lvim.builtin.bufferline.active = false
+-- lvim.builtin.bufferline.active = false
 -- lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
