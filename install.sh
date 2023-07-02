@@ -10,7 +10,7 @@ function create_symlink {
 	ln -sf $SRC $TRGT
 }
 
-APPS=("bashtop" "kitty" "ranger" "polybar" "nvim" "lvim")
+APPS=("bashtop" "kitty" "ranger" "polybar" "nvim" "lvim" "i3")
 for i in "${APPS[@]}"
 do
 	echo "Adding $i configuration."
