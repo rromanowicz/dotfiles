@@ -76,6 +76,20 @@ lvim.builtin.which_key.mappings["o"] = {
   -- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
 }
 
+lvim.builtin.which_key.mappings["b"] = { 
+  name = "Buffers",
+  j = { "<cmd>BufferLinePick<cr>", "Jump" },
+  f = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+  b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+  n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+  W = { "<cmd>noautocmd w<cr>", "Save without formatting (noautocmd)" },
+  e = { "<cmd>BufferLinePickClose<cr>", "Pick which buffer to close" },
+  h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+  l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the right" },
+  D = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by directory" },
+  L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language" },
+  p = { "<cmd>BufferLinePick<cr>", "Pick" },
+}
 
 -- lvim.builtin.which_key.mappings["f"] = {
 --   name = "Find",

@@ -1,6 +1,5 @@
 -- Additional Plugins
 lvim.plugins = {
-  "catppuccin/nvim",
   "lunarvim/github.nvim",
   "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
@@ -19,4 +18,7 @@ lvim.plugins = {
     end,
   },
 
+  -- Colorschemes
+  "catppuccin/nvim",
+  "nyngwang/nvimgelion",
 }

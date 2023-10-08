@@ -58,6 +58,10 @@ local config = {
         updateBuildConfiguration = "interactive",
         runtimes = {
           {
+            name = "JavaSE-21",
+            path = "~/.jdk/jdk-21",
+          },
+          {
             name = "JavaSE-19",
             path = "~/.jdk/jdk-19.0.2",
           },
