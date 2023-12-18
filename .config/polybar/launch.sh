@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-THEME="v2"
+THEME="v3"
 
 killall polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done

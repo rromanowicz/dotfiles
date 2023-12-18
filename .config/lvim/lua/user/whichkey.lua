@@ -1,15 +1,16 @@
 lvim.builtin.which_key.mappings["D"] = {
   name = "Debug",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-  c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-  i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-  o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-  O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+  c = { "<cmd>lua require'dap'.continue()<cr>", "Continue (F5)" },
+  i = { "<cmd>lua require'dap'.step_into()<cr>", "Into (F7)" },
+  o = { "<cmd>lua require'dap'.step_over()<cr>", "Over (F8)" },
+  O = { "<cmd>lua require'dap'.step_out()<cr>", "Out (S-F8)" },
   r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
   l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
   u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-  a = { function() local dap = require('dap') dap.configurations.java = { { type = 'java'; request = 'attach'; name = "Java Debug (Attach) - Remote"; hostName = "127.0.0.1"; port = 5005; }, } dap.continue() end, "Attach debug session." }
+  a = { function() local dap = require('dap') dap.configurations.java = { { type = 'java'; request = 'attach'; name = "Java Debug (Attach) - Remote"; hostName = "127.0.0.1"; port = 5005; }, } dap.continue() end, "Attach debug session." },
+  v = { function() local dap = require('dap') dap.configurations.java = { { type = 'java'; request = 'attach'; name = "Java Vaadin Debug (Attach) - Remote"; hostName = "127.0.0.1"; port = 5987; }, } dap.continue() end, "Attach debug session." }
 }
 lvim.builtin.which_key.mappings["d"] = {
   name = "[D]efinitions",

@@ -6,18 +6,18 @@
 PWD=$(pwd)"/.config"
 CONF_DIR=.config
 SHARE_DIR=.local/share
-CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar" "nvim" "lvim")
-APPS_TO_INSTALL=("zsh" "bashtop" "kitty" "ranger" "polybar")
-APPS_TO_COPY=("lunarvim", "lvim", "nvim")
+CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar") # "nvim" "lvim")
+APPS_TO_INSTALL=("zsh" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo")
+APPS_TO_COPY=("lvim" "nvim")
 
 
 #########################################
 ############### FUNCTIONS ###############
 #########################################
 function create_symlink {
-	TRGT="~/$1/$2"
+	TRGT="$HOME/$1/$2"
 	SRC=$PWD"/$1/$2"
-	[[ -d "~/$1/$2" ]] && mv $TRGT $TRGT".old"
+	[[ -d "$TRGT" ]] && rm -rf $TRGT".old" && mv $TRGT $TRGT".old"
 	ln -sf $SRC $TRGT
 }
 
@@ -63,21 +63,48 @@ log "Checking JDK."
 if [ ! -d "$HOME/.jdk/" ]; then
   echo "Creating ~/.jdk/ directory."
   mkdir ~/.jdk && cd ~/.jdk/
-
-  if [ ! -d "$HOME/.jdk/jdk-19.0.2/" ]; then
-  echo "Downloading jdk-19.0.2"
-    wget https://download.java.net/java/GA/jdk19.0.2/fdb695a9d9064ad6b064dc6df578380c/7/GPL/openjdk-19.0.2_linux-aarch64_bin.tar.gz
-    tar -xzvf openjdk-19.0.2_linux-aarch64_bin.tar.gz
-    rm openjdk-19.0.2_linux-aarch64_bin.tar.gz
-  fi
-
-  if [ ! -d "$HOME/.jdk/jdk-21/" ]; then
-  echo "Downloading jdk-21"
-    wget https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_linux-aarch64_bin.tar.gz
-    tar -xzvf openjdk-21_linux-aarch64_bin.tar.gz
-    rm openjdk-21_linux-aarch64_bin.tar.gz
-  fi
 fi
+
+if [ ! -d "$HOME/.jdk/jdk-19.0.2/" ]; then
+echo "Downloading jdk-19.0.2"
+  cd ~/.jdk/
+  wget https://download.java.net/java/GA/jdk19.0.2/fdb695a9d9064ad6b064dc6df578380c/7/GPL/openjdk-19.0.2_linux-x64_bin.tar.gz
+  tar -xzvf openjdk-19.0.2_linux-aarch64_bin.tar.gz
+  rm openjdk-19.0.2_linux-aarch64_bin.tar.gz
+fi
+
+if [ ! -d "$HOME/.jdk/jdk-21/" ]; then
+echo "Downloading jdk-21"
+  cd ~/.jdk/
+  wget https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_linux-x64_bin.tar.gz
+  tar -xzvf openjdk-21_linux-aarch64_bin.tar.gz
+  rm openjdk-21_linux-aarch64_bin.tar.gz
+fi
+
+
+#########################################
+log "LunarVim"
+#########################################
+read -p "Install LunarVim? (y/n)" yn
+case "$yn" in
+  [Yy]* ) echo "Downloading installer."
+  LV_BRANCH='release-1.3/neovim-0.9' 
+  bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+  ;;
+  * ) echo "Skipping installation.";;
+esac
+
+#
+#########################################
+log "NvChad"
+#########################################
+read -p "Install NvChad? (y/n)" yn
+case "$yn" in
+  [Yy]* ) echo "Downloading installer."
+  bash <(git clone https://github.com/rromanowicz/NvChad ~/.config/nvim --depth 1 && nvim)
+  ;;
+  * ) echo "Skipping installation.";;
+esac
 
 
 #########################################

@@ -177,6 +177,10 @@ function run_spring_boot(debug)
   vim.cmd('term ' .. get_spring_boot_runner(method_name, debug))
 end
 
+function run_maven_cmd(mvn)
+  vim.cmd('term mvn ' .. mvn)
+end
+
 
 --------------------------------
 --------- KEY MAPPINGS ---------
@@ -228,6 +232,14 @@ local mappings = {
     D = { "<Cmd>run_java_test_class(true)<CR>", "(D)ebug Class" },
     u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
   },
+  m ={
+    name = "Maven",
+    c = { function() run_maven_cmd("clean compile") end, "Compile"},
+    r = { function() run_spring_boot() end, "Run"},
+    d = { function() run_spring_boot(true) end, "Debug"},
+    i = { function() run_maven_cmd("clean install") end, "Install"},
+    s = { function() run_maven_cmd("source:jar install") end, "Source install"},
+  },
 }
 
 local vmappings = {
@@ -240,7 +252,6 @@ local vmappings = {
 }
 
 which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
 which_key.register(vmappings, vopts)
 
 
