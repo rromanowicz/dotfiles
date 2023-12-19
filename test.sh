@@ -7,7 +7,7 @@ PWD=$(pwd)"/.config"
 CONF_DIR=.config
 SHARE_DIR=.local/share
 CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar") # "nvim" "lvim")
-APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo")
+APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip")
 APPS_TO_COPY=("lvim" "nvim")
 
 
@@ -23,19 +23,17 @@ function create_symlink {
 
 log () {
   echo "-----------------------------"
-  echo $1
+  echo $18
   echo "-----------------------------"
 }
 #########################################
 
+NvChad
 #########################################
 log "Checking dependencies."
 #########################################
-sudo pacmay -Syu
+sudo pacman -Syu
 
-#########################################
-log "Checking dependencies."
-#########################################
 for i in "${APPS_TO_INSTALL[@]}"
 do
 x=`pacman -Qi $i | head -n 1`
@@ -72,17 +70,19 @@ fi
 if [ ! -d "$HOME/.jdk/jdk-19.0.2/" ]; then
 echo "Downloading jdk-19.0.2"
   cd ~/.jdk/
-  wget https://download.java.net/java/GA/jdk19.0.2/fdb695a9d9064ad6b064dc6df578380c/7/GPL/openjdk-19.0.2_linux-x64_bin.tar.gz
-  tar -xzvf openjdk-19.0.2_linux-x64_bin.tar.gz
-  rm openjdk-19.0.2_linux-aarch64_bin.tar.gz
+  JDK_19=openjdk-19.0.2_linux-x64_bin.tar.gz
+  wget https://download.java.net/java/GA/jdk19.0.2/fdb695a9d9064ad6b064dc6df578380c/7/GPL/$JDK_19
+  tar -xzvf $JDK_19
+  rm $JDK_19
 fi
 
 if [ ! -d "$HOME/.jdk/jdk-21/" ]; then
 echo "Downloading jdk-21"
   cd ~/.jdk/
-  wget https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_linux-x64_bin.tar.gz
-  tar -xzvf openjdk-21_linux-x64_bin.tar.gz
-  rm openjdk-21_linux-aarch64_bin.tar.gz
+  JDK_21=openjdk-21_linux-x64_bin.tar.gz
+  wget https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/$JDK_21
+  tar -xzvf $JDK_21
+  rm $JDK_21
 fi
 
 
@@ -105,7 +105,9 @@ log "NvChad"
 read -p "Install NvChad? (y/n)" yn
 case "$yn" in
   [Yy]* ) echo "Downloading installer."
-  bash <(git clone https://github.com/rromanowicz/NvChad $HOME/.config/nvim --depth 1 && nvim)
+  rm -rf $HOME/.config/nvim
+  rm -rf $HOME/.local/share/nvim
+  git clone https://github.com/rromanowicz/NvChad $HOME/.config/nvim --depth 1 && nvim
   ;;
   * ) echo "Skipping installation.";;
 esac
