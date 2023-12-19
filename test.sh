@@ -23,7 +23,7 @@ function create_symlink {
 
 log () {
   echo "-----------------------------"
-  echo $18
+  echo $1
   echo "-----------------------------"
 }
 #########################################
@@ -122,9 +122,9 @@ do
 	create_symlink "$CONF_DIR" "$i"
 done
 
-for i in "${APPS_TO_COPY[@]}"
-do
-	echo -e "\tCopying $i files."
-	create_symlink "$SHARE_DIR" "$i"
-done
+# for i in "${APPS_TO_COPY[@]}"
+# do
+# 	echo -e "\tCopying $i files."
+# 	create_symlink "$SHARE_DIR" "$i"
+# done
 
