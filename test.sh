@@ -14,6 +14,12 @@ APPS_TO_COPY=("lvim" "nvim")
 #########################################
 ############### FUNCTIONS ###############
 #########################################
+log () {
+  echo "-----------------------------"
+  echo $1
+  echo "-----------------------------"
+}
+
 function create_symlink {
 	TRGT="$HOME/$1/$2"
 	SRC=$PWD"/$1/$2"
@@ -21,14 +27,19 @@ function create_symlink {
 	ln -sf $SRC $TRGT
 }
 
-log () {
-  echo "-----------------------------"
-  echo $1
-  echo "-----------------------------"
+function get_nerdfont {
+  log "Installing font: $1" 
+	TRGT="/usr/share/fonts/$1"
+	SRC=$PWD"/$1/$2"
+	[[ -d "$TRGT" ]] && rm -rf $TRGT
+	mkdir $TRGT
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/$1.zip
+  unzip $1".zip" -d $TRGT
+  rm $1".zip"
 }
 #########################################
 
-NvChad
+
 #########################################
 log "Checking dependencies."
 #########################################
@@ -127,4 +138,19 @@ done
 # 	echo -e "\tCopying $i files."
 # 	create_symlink "$SHARE_DIR" "$i"
 # done
+
+
+#########################################
+log "Fonts."
+#########################################
+read -p "Install NerdFonts? (y/n)" yn
+case "$yn" in
+  [Yy]* ) echo "Downloading fonts."
+  cd $HOME/Downloads/
+  get_nerdfont DroidSansMono
+  get_nerdfont JetBrainsMono
+  ;;
+  * ) echo "Skipping installation.";;
+esac
+
 
