@@ -56,7 +56,7 @@ done
 
 
 #########################################
-log "Checking default shell."
+log "Checking default shell."https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
 #########################################
 if [[ "$SHELL" != *"zsh"* ]]; then
   echo "Setting up zsh."
@@ -149,6 +149,7 @@ case "$yn" in
   cd $HOME/Downloads/
   get_nerdfont DroidSansMono
   get_nerdfont JetBrainsMono
+  get_nerdfont NerdFontsSymbolsOnly
   ;;
   * ) echo "Skipping installation.";;
 esac
