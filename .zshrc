@@ -121,9 +121,9 @@ source $ZSH/oh-my-zsh.sh
 alias ls='ls -l --color=auto'
 alias ll='ls -ltra'
 alias vi="nvim"
-alias vim="nvim"
-alias view="nvim -R"
-alias vimdiff="nvim -d"
+alias vim="lvim"
+alias view="lvim -R"
+alias vimdiff="lvim -d"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
