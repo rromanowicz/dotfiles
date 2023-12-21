@@ -6,9 +6,9 @@
 PWD=$(pwd)"/.config"
 CONF_DIR=.config
 SHARE_DIR=.local/share
-CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar") # "nvim" "lvim")
-APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts")
-APPS_TO_COPY=("lvim" "nvim")
+CONFIGS_LO_LINK=("bashtop" "kitty" "ranger") # "polybar" "nvim" "lvim"
+APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "feh")
+#APPS_TO_COPY=("lvim" "nvim")
 
 
 #########################################
