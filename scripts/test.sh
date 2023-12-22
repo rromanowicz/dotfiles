@@ -7,7 +7,7 @@ PWD=$(pwd)"/.config"
 CONF_DIR=.config
 SHARE_DIR=.local/share
 CONFIGS_LO_LINK=("bashtop" "kitty" "ranger") # "polybar" "nvim" "lvim"
-APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "feh")
+APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool")
 #APPS_TO_COPY=("lvim" "nvim")
 
 
@@ -56,7 +56,7 @@ done
 
 
 #########################################
-log "Checking default shell."https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+log "Checking default shell."
 #########################################
 if [[ "$SHELL" != *"zsh"* ]]; then
   echo "Setting up zsh."
@@ -71,30 +71,34 @@ fi
 
 
 #########################################
-log "Checking JDK."
+log "Fonts."
 #########################################
-if [ ! -d "$HOME/.jdk/" ]; then
-  echo "Creating ~/.jdk/ directory."
-  mkdir ~/.jdk && cd ~/.jdk/
-fi
+read -p "Install NerdFonts? (y/n)" yn
+case "$yn" in
+  [Yy]* ) echo "Downloading fonts."
+  cd $HOME/Downloads/
+  get_nerdfont DroidSansMono
+  get_nerdfont JetBrainsMono
+  get_nerdfont NerdFontsSymbolsOnly
+  ;;
+  * ) echo "Skipping installation.";;
+esac
 
-if [ ! -d "$HOME/.jdk/jdk-19.0.2/" ]; then
-echo "Downloading jdk-19.0.2"
-  cd ~/.jdk/
-  JDK_19=openjdk-19.0.2_linux-x64_bin.tar.gz
-  wget https://download.java.net/java/GA/jdk19.0.2/fdb695a9d9064ad6b064dc6df578380c/7/GPL/$JDK_19
-  tar -xzvf $JDK_19
-  rm $JDK_19
-fi
 
-if [ ! -d "$HOME/.jdk/jdk-21/" ]; then
-echo "Downloading jdk-21"
-  cd ~/.jdk/
-  JDK_21=openjdk-21_linux-x64_bin.tar.gz
-  wget https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/$JDK_21
-  tar -xzvf $JDK_21
-  rm $JDK_21
-fi
+#########################################
+log "Creating symlinks."
+#########################################
+for i in "${CONFIGS_LO_LINK[@]}"
+do
+	echo -e "\tAdding $i configuration."
+	create_symlink "$CONF_DIR" "$i"
+done
+
+# for i in "${APPS_TO_COPY[@]}"
+# do
+# 	echo -e "\tCopying $i files."
+# 	create_symlink "$SHARE_DIR" "$i"
+# done
 
 
 #########################################
@@ -125,33 +129,29 @@ esac
 
 
 #########################################
-log "Creating symlinks."
+log "Checking JDK."
 #########################################
-for i in "${CONFIGS_LO_LINK[@]}"
-do
-	echo -e "\tAdding $i configuration."
-	create_symlink "$CONF_DIR" "$i"
-done
+if [ ! -d "$HOME/.jdk/" ]; then
+  echo "Creating ~/.jdk/ directory."
+  mkdir ~/.jdk && cd ~/.jdk/
+fi
 
-# for i in "${APPS_TO_COPY[@]}"
-# do
-# 	echo -e "\tCopying $i files."
-# 	create_symlink "$SHARE_DIR" "$i"
-# done
+if [ ! -d "$HOME/.jdk/jdk-19.0.2/" ]; then
+echo "Downloading jdk-19.0.2"
+  cd ~/.jdk/
+  JDK_19=openjdk-19.0.2_linux-x64_bin.tar.gz
+  wget https://download.java.net/java/GA/jdk19.0.2/fdb695a9d9064ad6b064dc6df578380c/7/GPL/$JDK_19
+  tar -xzvf $JDK_19
+  rm $JDK_19
+fi
 
-
-#########################################
-log "Fonts."
-#########################################
-read -p "Install NerdFonts? (y/n)" yn
-case "$yn" in
-  [Yy]* ) echo "Downloading fonts."
-  cd $HOME/Downloads/
-  get_nerdfont DroidSansMono
-  get_nerdfont JetBrainsMono
-  get_nerdfont NerdFontsSymbolsOnly
-  ;;
-  * ) echo "Skipping installation.";;
-esac
+if [ ! -d "$HOME/.jdk/jdk-21/" ]; then
+echo "Downloading jdk-21"
+  cd ~/.jdk/
+  JDK_21=openjdk-21_linux-x64_bin.tar.gz
+  wget https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/$JDK_21
+  tar -xzvf $JDK_21
+  rm $JDK_21
+fi
 
 
