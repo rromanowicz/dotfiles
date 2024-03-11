@@ -1,11 +1,9 @@
 #!/bin/bash
 
 #docker run -it --privileged=true archlinux:latest /bin/bash 
-#
+#pacman -Sy && pacman -S --noconfirm wget && wget -O - https://raw.githubusercontent.com/rromanowicz/dotfiles/master/scripts/install_docker.sh | bash
 
-
-pacman -Sy
-pacman -S --noconfirm git neovim make python cargolazygit npm unzip awesome-terminal-fonts rust rust-src
+pacman -S --noconfirm git neovim make python cargo lazygit npm unzip awesome-terminal-fonts rust rust-src
 
 if [ ! -d "$HOME/.jdk/" ]; then
   echo "Creating ~/.jdk/ directory."
