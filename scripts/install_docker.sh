@@ -18,4 +18,4 @@ if [ ! -d "$HOME/.jdk/jdk-21/" ]; then
   rm $JDK_21
 fi
 
-git clone https://github.com/rromanowicz/NvChad ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/rromanowicz/NvChad ~/.config/nvim --depth 1
