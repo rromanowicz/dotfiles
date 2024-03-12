@@ -42,6 +42,3 @@ fi
 echo "Cloning nvim config."
 git clone https://github.com/rromanowicz/NvChad ~/.config/nvim --depth 1
 
-
-
-mkdir $HOME/git
