@@ -4,7 +4,7 @@
 #docker run --name "devenv" -it devenv /bin/zsh
 
 
-pacman -S --noconfirm git zsh neovim make python cargo lazygit npm unzip awesome-terminal-fonts rust rust-src ripgrep 
+pacman -S --noconfirm git zsh neovim make python cargo lazygit npm unzip awesome-terminal-fonts rust rust-src ripgrep pkg-config 
 
 
 echo "Setting up zsh."
