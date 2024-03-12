@@ -35,5 +35,5 @@ git clone https://github.com/rromanowicz/NvChad ~/.config/nvim --depth 1
 
 
 echo "Setting up ZSH."
-echo "alias vim='nvim'" > $HOME/.zshrc
-echo "alias lg='lazygit'" > $HOME/.zshrc
+echo "alias vim='nvim'" >> $HOME/.zshrc
+echo "alias lg='lazygit'" >> $HOME/.zshrc
