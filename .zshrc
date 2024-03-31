@@ -7,7 +7,8 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=~/.jdk/jdk-19.0.2/bin:$PATH
+export PATH=~/.jdk/jdk-21/bin:$PATH
+export PATH=~/git/executables:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -82,50 +83,27 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-fast-syntax-highlighting zsh-autocomplete)
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-
-
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
+
 #Aliases
 alias ls='ls -l --color=auto'
 alias ll='ls -ltra'
 alias vi="nvim"
-alias vim="lvim"
-alias view="lvim -R"
-alias vimdiff="lvim -d"
+alias vim="nvim"
+alias view="nvim -R"
+alias vimdiff="nvim -d"
+alias lg='lazygit'
+alias ld='lazydocker'
 
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
 
 export VISUAL=nvim;
 export EDITOR=nvim;
