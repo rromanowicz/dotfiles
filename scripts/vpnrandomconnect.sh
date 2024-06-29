@@ -1,6 +1,6 @@
 #!/bin/bash
 
-countries=("Czech_Republic" "Sweden" "Finland")
+countries=("Norway" "Denmark" "Belgium" "Sweden" "Finland")
 RANDOM=$$$(date +%s)
 STATUS=$(nordvpn status | grep 'Status' | sed -En 's/Status: //p')
 

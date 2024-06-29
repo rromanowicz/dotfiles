@@ -7,7 +7,7 @@ PWD=$(pwd)"/.config"
 CONF_DIR=$HOME/.config
 SHARE_DIR=.local/share
 CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar" "dunst")
-APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool" "ripgrep" "rust-src" "docker")
+APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool" "ripgrep" "rust-src" "docker" "playerctl", "ncspot")
 YAY_INSTALL=("nordvpn-bin" "lazydocker")
 PASS=""
 
@@ -110,20 +110,6 @@ done
 
 
 ##################################################################################
-log "NvChad"      ################################################################
-##################################################################################
-read -p "Install NvChad? (y/n)" yn
-case "$yn" in
-  [Yy]* ) echo "Downloading installer."
-  rm -rf $HOME/.config/nvim
-  rm -rf $HOME/.local/share/nvim
-  git clone https://github.com/rromanowicz/NvChad $CONF_DIR/nvim --depth 1 && nvim
-  ;;
-  * ) echo "Skipping installation.";;
-esac
-
-
-##################################################################################
 log "Checking JDK."      #########################################################
 ##################################################################################
 if [ ! -d "$HOME/.jdk/" ]; then
@@ -149,10 +135,26 @@ echo "Downloading jdk-21"
   rm $JDK_21
 fi
 
+
 ##################################################################################
 log "Copying .zshrc"      ########################################################
 ##################################################################################
 cp $HOME/git/dotfiles/.zshrc $HOME/.zshrc
+
+
+##################################################################################
+log "NvChad"      ################################################################
+##################################################################################
+read -p "Install NvChad? (y/n)" yn
+case "$yn" in
+  [Yy]* ) echo "Downloading installer."
+  rm -rf $HOME/.config/nvim
+  rm -rf $HOME/.local/share/nvim
+  git clone https://github.com/rromanowicz/NvChad $CONF_DIR/nvim --depth 1 && nvim
+  ;;
+  * ) echo "Skipping installation.";;
+esac
+
 
 ##################################################################################
 log "Setup complete. Have fun."      #############################################
