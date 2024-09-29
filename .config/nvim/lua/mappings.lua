@@ -57,12 +57,19 @@ map("n", "<leader>dS", vim.lsp.buf.signature_help, { desc = "Def Signature Docum
 map("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, { desc = "Def Document Symbols" })
 
 map("n", "<leader>g", "", { desc = "[G]it" })
-map(
-  "n",
-  "<leader>gg",
-  "<cmd>require('nvchad.term').toggle { pos = 'float', id = 'floa', cmd = 'lazygit' }<cr>",
-  { desc = "Git Lazygit" }
-)
+map("n", "<leader>gg", function()
+  require("nvchad.term").toggle {
+    pos = "float",
+    id = "flt",
+    cmd = "lazygit && exit",
+    float_opts = {
+      row = 0.1,
+      col = 0.1,
+      width = 0.8,
+      height = 0.8,
+    },
+  }
+end, { desc = "Git Lazygit" })
 map(
   "n",
   "<leader>gj",
