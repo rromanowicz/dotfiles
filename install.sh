@@ -6,12 +6,10 @@
 PWD=$(pwd)"/.config"
 CONF_DIR=$HOME/.config
 SHARE_DIR=.local/share
-CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar" "dunst")
+CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar" "dunst" "i3")
 APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool" "ripgrep" "rust-src" "docker" "playerctl", "ncspot")
-YAY_INSTALL=("nordvpn-bin" "lazydocker")
+YAY_INSTALL=("nordvpn-bin" "lazydocker" "bluetui")
 PASS=""
-
-#zsh neovim bashtop kitty ranger polybar make python cargo dunst lazygit rofi npm unzip awesome-terminal-fonts xdotool ripgrep rust-src
 
 ##################################################################################
 ############### FUNCTIONS ########################################################
@@ -64,24 +62,37 @@ do
 x=`pacman -Qi $i | head -n 1`
 if [ ! -n "$x" ]; then 
   echo -e "Installing:\n\t$x"
-  echo $PASS | sudo pacman -S $if
+  echo $PASS | sudo pacman -S $i
 fi
 done
 
 
 ##################################################################################
-log "Checking default shell."      ###############################################
+log "Install yay."      ##########################################################
 ##################################################################################
-if [[ "$SHELL" != *"zsh"* ]]; then
-  echo "Setting up zsh."
-  chsh -s /bin/zsh
+read -p "Install yay? (y/n)" yn
+case "$yn" in
+  [Yy]* ) echo "Downloading installer."
+    if [ ! -d "$HOME/git/" ]; then
+      echo "Creating ~/git/ directory."
+      mkdir ~/git && cd ~/git/
+    fi
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+  ;;
+  * ) echo "Skipping installation.";;
+esac
 
-  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-  git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+x=`pacman -Qi yay | head -n 1`
+if [ ! -n "$x" ]; then 
+  for i in "${YAY_INSTALL[@]}"
+  do
+    echo -e "Installing:\n\t$i"
+    yay -S $i
+  done
 fi
+
 
 
 ##################################################################################
@@ -135,6 +146,20 @@ echo "Downloading jdk-21"
   rm $JDK_21
 fi
 
+
+##################################################################################
+log "Checking default shell."      ###############################################
+##################################################################################
+if [[ "$SHELL" != *"zsh"* ]]; then
+  echo "Setting up zsh."
+  chsh -s /bin/zsh
+
+  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+fi
 
 ##################################################################################
 log "Copying .zshrc"      ########################################################

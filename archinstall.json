@@ -1,0 +1,152 @@
+{
+    "additional-repositories": [
+        "multilib"
+    ],
+    "archinstall-language": "English",
+    "bootloader": "Grub",
+    "config_version": "2.8.6",
+    "debug": false,
+    "disk_config": {
+        "config_type": "default_layout",
+        "device_modifications": [
+            {
+                "device": "/dev/sda",
+                "partitions": [
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [
+                            "Boot"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "obj_id": "c8b5e892-d424-452e-9519-29767da29c80",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "GiB",
+                            "value": 1
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 3
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [],
+                        "fs_type": "ext4",
+                        "mount_options": [],
+                        "mountpoint": "/",
+                        "obj_id": "f3d7881f-5704-4cc8-a863-9a436c90b36f",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 238980521984
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 1076887552
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    }
+                ],
+                "wipe": true
+            }
+        ]
+    },
+    "hostname": "archlinux",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US"
+    },
+    "mirror_config": {
+        "custom_mirrors": [],
+        "mirror_regions": {
+            "Poland": [
+                "http://arch.midov.pl/arch/$repo/os/$arch",
+                "https://arch.midov.pl/arch/$repo/os/$arch",
+                "http://arch.sakamoto.pl/$repo/os/$arch",
+                "https://arch.sakamoto.pl/$repo/os/$arch",
+                "http://ftp.psnc.pl/linux/archlinux/$repo/os/$arch",
+                "http://mirror.juniorjpdj.pl/archlinux/$repo/os/$arch",
+                "https://mirror.juniorjpdj.pl/archlinux/$repo/os/$arch",
+                "https://ftp.psnc.pl/linux/archlinux/$repo/os/$arch",
+                "http://ftp.icm.edu.pl/pub/Linux/dist/archlinux/$repo/os/$arch",
+                "https://ftp.icm.edu.pl/pub/Linux/dist/archlinux/$repo/os/$arch",
+                "http://mirroronet.pl/pub/mirrors/archlinux/$repo/os/$arch",
+                "https://mirroronet.pl/pub/mirrors/archlinux/$repo/os/$arch"
+            ]
+        }
+    },
+    "network_config": {
+        "type": "nm"
+    },
+    "no_pkg_lookups": false,
+    "ntp": true,
+    "offline": false,
+    "packages": [
+        "xdotool",
+        "zsh",
+        "make",
+        "ranger",
+        "polybar",
+        "rust-src",
+        "neovim",
+        "git",
+        "docker",
+        "firefox",
+        "python",
+        "rofi",
+        "rustup",
+        "kitty",
+        "ripgrep",
+        "unzip",
+        "bluez",
+        "bluez-utils"
+    ],
+    "parallel downloads": 0,
+    "profile_config": {
+        "gfx_driver": "All open-source",
+        "greeter": "ly",
+        "profile": {
+            "custom_settings": {
+                "i3-wm": {}
+            },
+            "details": [
+                "i3-wm"
+            ],
+            "main": "Desktop"
+        }
+    },
+    "script": "guided",
+    "silent": false,
+    "skip_ntp": false,
+    "skip_version_check": false,
+    "swap": true,
+    "timezone": "Europe/Warsaw",
+    "uki": false,
+    "version": "2.8.6"
+}
