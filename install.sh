@@ -93,7 +93,7 @@ if [ -n "$x" ]; then
   done
 fi
 
-
+rustup component add rust-analyzer
 
 ##################################################################################
 log "Fonts."      ################################################################
@@ -175,7 +175,8 @@ case "$yn" in
   [Yy]* ) echo "Downloading installer."
   rm -rf $HOME/.config/nvim
   rm -rf $HOME/.local/share/nvim
-  git clone https://github.com/rromanowicz/NvChad $CONF_DIR/nvim --depth 1 && nvim
+  git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+  create_symlink "$CONF_DIR" "nvim"
   ;;
   * ) echo "Skipping installation.";;
 esac
