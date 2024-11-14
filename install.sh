@@ -85,7 +85,7 @@ case "$yn" in
 esac
 
 x=`pacman -Qi yay | head -n 1`
-if [ ! -n "$x" ]; then 
+if [ -n "$x" ]; then 
   for i in "${YAY_INSTALL[@]}"
   do
     echo -e "Installing:\n\t$i"
