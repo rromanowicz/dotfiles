@@ -5,14 +5,14 @@ require "nvchad.mappings"
 -- '<,'>s/.*\([a-z]\).=.{.\(.*\),.\(.*\).}/map("n", "<leader>l\1", \2, {desc=\3})/
 
 local map = vim.keymap.set
-local nomap = vim.keymap.del
+-- local nomap = vim.keymap.del
 
 --Disable default mappings
 -- nomap("n", "<leader>ca")
-nomap("n", "<leader>cc")
-nomap("n", "<leader>cm")
-nomap("n", "<leader>ch")
-nomap("n", "<leader>ma")
+-- nomap("n", "<leader>cc")
+-- nomap("n", "<leader>cm")
+-- nomap("n", "<leader>ch")
+-- nomap("n", "<leader>ma")
 
 map("n", "<C-S-p>", "<cmd> vertical resize -5 <CR>", { desc = "Vertical resize -5" })
 map("n", "<C-S-\\>", "<cmd> vertical resize +5 <CR>", { desc = "Vertical resize +5" })

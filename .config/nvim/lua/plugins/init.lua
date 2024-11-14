@@ -130,12 +130,8 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^4",
-    ft = { "rust" },
-    dependencies = "neovim/nvim-lspconfig",
-    -- config = function()
-    --   require "custom.configs.rustaceanvim"
-    -- end
+    version = "^5",
+    lazy = false,
   },
   {
     "saecki/crates.nvim",
