@@ -5,7 +5,7 @@ require "nvchad.mappings"
 -- '<,'>s/.*\([a-z]\).=.{.\(.*\),.\(.*\).}/map("n", "<leader>l\1", \2, {desc=\3})/
 
 local map = vim.keymap.set
--- local nomap = vim.keymap.del
+local nomap = vim.keymap.del
 
 --Disable default mappings
 -- nomap("n", "<leader>ca")
@@ -96,7 +96,7 @@ map("n", "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", { desc = "Git Git Diff
 
 map("n", "<leader>D", "", { desc = "[D]ebug" })
 map("n", "<leader>Db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Debug Breakpoint" })
-map("n", "<leader>Dc", "<cmd>lua require'dap'.continue()<cr>", { desc = "Debug Continue (F5)" })
+map("n", "<leader>Dc", function() require('dap').continue() end, { desc = "Debug Continue (F5)" })
 map("n", "<leader>Di", "<cmd>lua require'dap'.step_into()<cr>", { desc = "Debug Into (F7)" })
 map("n", "<leader>Do", "<cmd>lua require'dap'.step_over()<cr>", { desc = "Debug Over (F8)" })
 map("n", "<leader>DO", "<cmd>lua require'dap'.step_out()<cr>", { desc = "Debug Out (S-F8)" })
@@ -104,6 +104,14 @@ map("n", "<leader>Dr", "<cmd>lua require'dap'.repl.toggle()<cr>", { desc = "Debu
 map("n", "<leader>Dl", "<cmd>lua require'dap'.run_last()<cr>", { desc = "Debug Run Last" })
 map("n", "<leader>Du", "<cmd>lua require'dapui'.toggle()<cr>", { desc = "Debug UI" })
 map("n", "<leader>Dx", "<cmd>lua require'dap'.terminate()<cr>", { desc = "Debug Exit" })
+
+vim.keymap.set('n', '<F3>', function() require('dapui').toggle() end)
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+vim.keymap.set('n', '<F8>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F7>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<F9>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<F10>', function() require('dap').terminate() end)
+
 
 map("n", "<leader>j", "", { desc = "[J]ava" })
 map("n", "<leader>jp", "<cmd>JavaBuildBuildWorkspace<cr>", { desc = "Java [B]uild Workspace" })

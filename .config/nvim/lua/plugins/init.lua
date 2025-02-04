@@ -11,6 +11,13 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
+    opts = {
+      setup = {
+        rust_analyzer = function()
+          return true
+        end,
+      },
+    },
   },
 
   {
@@ -31,7 +38,23 @@ return {
   {
     "folke/zen-mode.nvim",
     -- lazy=false,
+    opts = {
+      window = {
+        width = 130,
+      },
+      plugins = {
+        -- disable some global vim options (vim.o...)
+        -- comment the lines to not apply the options
+        options = {
+          enabled = true,
+          ruler = false, -- disables the ruler text in the cmd line area
+          showcmd = false, -- disables the command in the last line of the screen
+          laststatus = 0, -- turn off the statusline in zen mode
+        },
+      }
+    }
   },
+
 
   -- LANGUAGE SPECIFICS
   --
@@ -71,11 +94,11 @@ return {
                     runtimes = {
                       {
                         name = "javase-19",
-                        path = "~/.jdk/jdk-19.0.2",
+                        path = "~/.jdk/jdk-19.0.2/Contents/Home",
                       },
                       {
                         name = "javase-21",
-                        path = "~/.jdk/jdk-21",
+                        path = "~/.jdk/jdk-21/Contents/Home",
                       },
                     },
                   },
@@ -128,11 +151,13 @@ return {
       vim.g.rustfmt_autosave = 1
     end,
   },
+
   {
-    "mrcjkb/rustaceanvim",
-    version = "^5",
-    lazy = false,
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false,   -- This plugin is already lazy
   },
+
   {
     "saecki/crates.nvim",
     ft = { "toml" },
