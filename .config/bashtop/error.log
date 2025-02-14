@@ -1,8 +1,4 @@
 stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
-/usr/bin/bashtop: line 660: ((: <80 | <24: syntax error: operand expected (error token is "<80 | <24")
-stty: 'standard input': Inappropriate ioctl for device
-stty: 'standard input': Inappropriate ioctl for device
 /usr/bin/bashtop: line 660: ((: <80 | <24: syntax error: operand expected (error token is "<80 | <24")
 stty: 'standard input': Inappropriate ioctl for device
 stty: 'standard input': Inappropriate ioctl for device
@@ -500,3 +496,18 @@ New instance of bashtop version: 0.9.25 Pid: 3157
 New instance of bashtop version: 0.9.25 Pid: 338876
  
 New instance of bashtop version: 0.9.25 Pid: 375221
+ 
+New instance of bashtop version: 0.9.25 Pid: 370494
+ 
+New instance of bashtop version: 0.9.25 Pid: 483727
+error: process ID out of range
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+05:00:07 PM ERROR: On line 2457 

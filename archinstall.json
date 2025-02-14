@@ -6,73 +6,6 @@
     "bootloader": "Grub",
     "config_version": "2.8.6",
     "debug": false,
-    "disk_config": {
-        "config_type": "default_layout",
-        "device_modifications": [
-            {
-                "device": "/dev/sda",
-                "partitions": [
-                    {
-                        "btrfs": [],
-                        "dev_path": null,
-                        "flags": [
-                            "Boot"
-                        ],
-                        "fs_type": "fat32",
-                        "mount_options": [],
-                        "mountpoint": "/boot",
-                        "obj_id": "c8b5e892-d424-452e-9519-29767da29c80",
-                        "size": {
-                            "sector_size": {
-                                "unit": "B",
-                                "value": 512
-                            },
-                            "unit": "GiB",
-                            "value": 1
-                        },
-                        "start": {
-                            "sector_size": {
-                                "unit": "B",
-                                "value": 512
-                            },
-                            "unit": "MiB",
-                            "value": 3
-                        },
-                        "status": "create",
-                        "type": "primary"
-                    },
-                    {
-                        "btrfs": [],
-                        "dev_path": null,
-                        "flags": [],
-                        "fs_type": "ext4",
-                        "mount_options": [],
-                        "mountpoint": "/",
-                        "obj_id": "f3d7881f-5704-4cc8-a863-9a436c90b36f",
-                        "size": {
-                            "sector_size": {
-                                "unit": "B",
-                                "value": 512
-                            },
-                            "unit": "B",
-                            "value": 238980521984
-                        },
-                        "start": {
-                            "sector_size": {
-                                "unit": "B",
-                                "value": 512
-                            },
-                            "unit": "B",
-                            "value": 1076887552
-                        },
-                        "status": "create",
-                        "type": "primary"
-                    }
-                ],
-                "wipe": true
-            }
-        ]
-    },
     "hostname": "archlinux",
     "kernels": [
         "linux"
@@ -125,7 +58,10 @@
         "ripgrep",
         "unzip",
         "bluez",
-        "bluez-utils"
+        "bluez-utils",
+        "nitrogen",
+        "playerctl",
+        "python-pillow"
     ],
     "parallel downloads": 0,
     "profile_config": {
