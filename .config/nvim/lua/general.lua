@@ -7,6 +7,7 @@ opt.signcolumn = "yes"
 opt.cursorline = true
 opt.list = true
 opt.listchars = { tab = "> " }
+vim.o.showtabline = 2
 
 -- Tab / Indent
 opt.tabstop = 2
@@ -43,18 +44,18 @@ opt.termguicolors = true
 
 vim.g.mapleader = " "
 
--- require("catppuccin").setup({
---     flavor = "mocha",
---     -- transparent_background = true,
---     -- color_overrides = {
---     --     mocha = {
---     --         base = "#000000",
---     --         mantle = "#000000",
---     --         crust = "#000000",
---     --     },
---     -- },
---     integrations = {
---         notify = true,
---     },
--- })
-vim.cmd("colorscheme github_dark_dimmed")
+require("catppuccin").setup({
+    flavor = "macchiato",
+    -- transparent_background = true,
+    -- color_overrides = {
+    --     mocha = {
+    --         base = "#000000",
+    --         mantle = "#000000",
+    --         crust = "#000000",
+    --     },
+    -- },
+    integrations = {
+        notify = true,
+    },
+})
+vim.cmd("colorscheme catppuccin-macchiato")

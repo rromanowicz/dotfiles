@@ -18,14 +18,14 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 
 require("lazy").setup({
-  { "catppuccin/nvim", name = "catppuccin" },
-  'navarasu/onedark.nvim',
+  { "catppuccin/nvim",             name = "catppuccin" },
   { 'projekt0n/github-nvim-theme', name = 'github-theme' },
   "nvim-lualine/lualine.nvim",
   "rmagatti/auto-session",
   { "windwp/nvim-autopairs",   event = "InsertEnter" },
   "nvim-tree/nvim-tree.lua",
   "nvim-tree/nvim-web-devicons",
+  { 'akinsho/bufferline.nvim', version = "*",        dependencies = 'nvim-tree/nvim-web-devicons' },
 
   { 'akinsho/toggleterm.nvim', version = "*",        config = true },
 
@@ -35,9 +35,6 @@ require("lazy").setup({
     opts = {
       window = {
         width = 130,
-        options = {
-          number = true,
-        }
       },
       plugins = {
         -- disable some global vim options (vim.o...)
@@ -225,6 +222,7 @@ require("general")
 require("auto-session").setup()
 require("nvim-autopairs").setup()
 require("line")
+require("buffline")
 require("tree")
 require("configs.lsp")
 require("completion")
@@ -246,6 +244,3 @@ require("configs.toggleterm")
 -- Settings (After plugin load)
 require("mappings")
 require("configs.whichkey")
-
-
-
