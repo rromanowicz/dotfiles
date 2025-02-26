@@ -22,12 +22,14 @@ require("lazy").setup({
   { 'projekt0n/github-nvim-theme', name = 'github-theme' },
   "nvim-lualine/lualine.nvim",
   "rmagatti/auto-session",
-  { "windwp/nvim-autopairs",   event = "InsertEnter" },
+  { "windwp/nvim-autopairs",         event = "InsertEnter" },
   "nvim-tree/nvim-tree.lua",
   "nvim-tree/nvim-web-devicons",
-  { 'akinsho/bufferline.nvim', version = "*",        dependencies = 'nvim-tree/nvim-web-devicons' },
+  { 'akinsho/bufferline.nvim',       version = "*",                        dependencies = 'nvim-tree/nvim-web-devicons' },
 
-  { 'akinsho/toggleterm.nvim', version = "*",        config = true },
+  { 'voldikss/vim-floaterm' },
+
+  { 'VonHeikemen/fine-cmdline.nvim', dependencies = 'MunifTanjim/nui.nvim' },
 
   {
     "folke/zen-mode.nvim",
@@ -115,7 +117,6 @@ require("lazy").setup({
   "NMAC427/guess-indent.nvim",
   { "nvim-telescope/telescope.nvim",   tag = "0.1.2",                                     dependencies = { "nvim-lua/plenary.nvim" } },
   { "debugloop/telescope-undo.nvim",   dependencies = { "nvim-telescope/telescope.nvim" } },
-  { "akinsho/toggleterm.nvim" },
   -- "klen/nvim-config-local",
   "rcarriga/nvim-notify",
   "mrded/nvim-lsp-notify",
@@ -235,12 +236,11 @@ require("telescope").setup {
     }
   }
 }
-require("term")
 vim.notify = require("notify")
 
 require('gitsigns').setup()
-require("configs.toggleterm")
 
 -- Settings (After plugin load)
 require("mappings")
 require("configs.whichkey")
+require("cmdline")

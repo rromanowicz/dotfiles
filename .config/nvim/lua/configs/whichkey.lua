@@ -49,7 +49,7 @@ wk.add({
   { "<leader>g",  group = "[G]it" },
   {
     "<leader>gg",
-    "<cmd>lua Lazygit_toggle()<CR>",
+    "<cmd>FloatermNew --height=0.8 --width=0.8 lazygit<cr>",
     desc = "Git Lazygit"
   },
   { "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", desc = "Git Next Hunk" },
@@ -110,9 +110,9 @@ wk.add({
 
 wk.add({
   { "<leader>t",  group = "[T]erminal" },
-  { "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal" },
-  { "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>",   desc = "Vertical" },
-  { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>",      desc = "Float" },
+  { "<leader>th", "<cmd>FloatermNew --height=0.3 --wintype=split<cr>",      desc = "Horizontal" },
+  { "<leader>tv", "<cmd>FloatermNew --height=0.3 --wintype=vsplit<cr>",      desc = "Vertical" },
+  { "<leader>tf", "<cmd>FloatermNew --height=0.6 --width=0.6<cr>",      desc = "Float" },
 })
 
 wk.add({
