@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-exec python3 "/home/ex/.local/share/lvim/mason/packages/jdtls/bin/jdtls" "$@"

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-exec java -jar "/home/ex/.local/share/lvim/mason/packages/google-java-format/google-java-format-1.17.0-all-deps.jar" "$@"
