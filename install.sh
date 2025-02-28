@@ -6,9 +6,9 @@
 PWD=$(pwd)"/.config"
 CONF_DIR=$HOME/.config
 SHARE_DIR=.local/share
-CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar" "dunst" "i3")
-APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool" "ripgrep" "rust-src" "docker" "playerctl", "ncspot")
-YAY_INSTALL=("nordvpn-bin" "lazydocker" "bluetui")
+CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar" "dunst" "i3" "picom.conf")
+APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool" "ripgrep" "rust-src" "docker" "playerctl" "picom")
+YAY_INSTALL=("nordvpn-bin" "lazydocker" "bluetui" "codelldb-bin")
 PASS=""
 
 ##################################################################################
