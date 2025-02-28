@@ -11,6 +11,11 @@ echo "Setting up zsh."
 chsh -s /bin/zsh
 chsh -s /usr/bin/zsh
 
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 
 echo "Setting up JDK."
 if [ ! -d "$HOME/.jdk/" ]; then
@@ -33,6 +38,6 @@ git clone https://github.com/rromanowicz/nvim ~/.config/nvim
 
 echo "alias vim='nvim'" >> $HOME/.zshrc
 echo "alias lg='lazygit'" >> $HOME/.zshrc
-echo "export JAVA_HOME=~/.jdk/jdk-21"
-echo "export PATH=$JAVA_HOME/bin:$PATH"
+echo "export JAVA_HOME=~/.jdk/jdk-21" >> $HOME/.zshrc
+echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> $HOME/.zshrc
 
