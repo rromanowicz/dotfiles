@@ -4,7 +4,7 @@
 #docker run --name "devenv" -it devenv /bin/zsh
 
 
-pacman -S --noconfirm git zsh neovim make python cargo lazygit npm unzip awesome-terminal-fonts rust rust-src ripgrep pkg-config openssh 
+pacman -S --noconfirm git zsh neovim make python cargo lazygit npm unzip awesome-terminal-fonts rust rust-src ripgrep pkg-config openssh yazi
 
 
 echo "Setting up zsh."
@@ -40,5 +40,5 @@ fi
 
 
 echo "Cloning nvim config."
-git clone https://github.com/rromanowicz/NvChad ~/.config/nvim --depth 1
+git clone https://github.com/rromanowicz/nvim ~/.config/nvim
 
