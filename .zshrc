@@ -103,7 +103,16 @@ alias vimdiff="nvim -d"
 alias lg='lazygit'
 alias ld='lazydocker'
 
+alias cura='~/.AppImage/UltiMaker_Cura.AppImage -platformtheme gtk3'
+alias creality='~/.AppImage/CrealityPrint.AppImage'
+alias cad='~/.AppImage/FreeCAD.AppImage'
+alias mount='udisksctl mount -b'
+alias unmount='udisksctl unmount -b'
+alias wupdate='sudo pacman -Syu'
 
+alias venv='source ~/git/dotfiles/scripts/python_venv.sh'
 
 export VISUAL=nvim;
 export EDITOR=nvim;
+
+source <(fzf --zsh)
