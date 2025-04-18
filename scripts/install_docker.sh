@@ -4,7 +4,7 @@
 #docker run --name "devenv" -it devenv /bin/zsh
 
 
-pacman -S --noconfirm git zsh neovim make python cargo lazygit npm unzip awesome-terminal-fonts rust rust-src rust-analyzer ripgrep pkg-config openssh yazi
+pacman -S --noconfirm git zsh neovim make python cargo lazygit npm unzip awesome-terminal-fonts rust rust-src rust-analyzer ripgrep pkg-config openssh yazi debugedit fakeroot
 
 
 echo "Setting up zsh."
@@ -41,3 +41,6 @@ echo "alias lg='lazygit'" >> $HOME/.zshrc
 echo "export JAVA_HOME=~/.jdk/jdk-21" >> $HOME/.zshrc
 echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> $HOME/.zshrc
 
+
+sh -c "$(wget -O- https://raw.githubusercontent.com/greyltc-org/docker-archlinux-aur/refs/heads/master/add-aur.sh)"
+aur-install posting
