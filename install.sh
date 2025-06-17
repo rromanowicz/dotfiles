@@ -7,7 +7,7 @@ PWD=$(pwd)"/.config"
 CONF_DIR=$HOME/.config
 SHARE_DIR=.local/share
 CONFIGS_LO_LINK=("bashtop" "kitty" "ranger" "polybar" "dunst" "i3" "picom.conf")
-APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool" "ripgrep" "rust-src" "docker" "playerctl" "picom")
+APPS_TO_INSTALL=("zsh" "neovim" "bashtop" "kitty" "ranger" "polybar" "make" "python" "cargo" "dunst" "lazygit" "rofi" "npm" "unzip" "awesome-terminal-fonts" "xdotool" "ripgrep" "rust-src" "docker" "playerctl" "picom" "nitrogen" "checkupdates" "yazi" "xsel" "fzf" "bluetoothctl" "bc")
 YAY_INSTALL=("nordvpn-bin" "lazydocker" "bluetui" "codelldb-bin")
 PASS=""
 
@@ -181,6 +181,8 @@ case "$yn" in
   * ) echo "Skipping installation.";;
 esac
 
+sudo cp $HOME/git/dotfiles/scripts/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
+sudo systemctl enable -now bluetooth.service
 
 ##################################################################################
 log "Setup complete. Have fun."      #############################################
