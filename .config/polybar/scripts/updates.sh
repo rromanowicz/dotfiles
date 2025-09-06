@@ -6,7 +6,15 @@ get_total_updates() { UPDATES=$(checkupdates 2>/dev/null | wc -l); }
 
 while true; do
     get_total_updates
-    echo " $UPDATES"
+       if (( UPDATES > 75 )); then
+          echo %{F#FF0000} %{F-}$UPDATES
+       elif (( UPDATES > 50 )); then
+          echo %{F#FF7300} %{F-}$UPDATES
+       elif (( UPDATES > 25 )); then
+          echo %{F#FFFF00} %{F-}$UPDATES
+       else
+          echo %{F#00FF00} %{F-}$UPDATES
+       fi
     # notify user of updates
 #    if hash notify-send &>/dev/null; then
 #        if (( UPDATES > 50 )); then
