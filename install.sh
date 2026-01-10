@@ -63,7 +63,7 @@ for dir in $DOTFILES_CONFIG_DIR*/
 do
     dir=${dir%*/}
     dirname="${dir##*/}"
-    ln -s $DOTFILES_CONFIG_DIR$dirname $CONFIG_DIR$dirname
+    ln -sf $DOTFILES_CONFIG_DIR$dirname $CONFIG_DIR$dirname
 done
 ##################################################################################
 
