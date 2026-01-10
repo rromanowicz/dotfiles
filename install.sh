@@ -34,7 +34,7 @@ CONFIG_DIR=~/.config/
 log "Packages"      ##############################################################
 ##################################################################################
 pacman -Sy
-pacman --noconfirm -S git zsh neovim bashtop kitty make go python cargo rust-analyzer lazygit npm unzip awesome-terminal-fonts xdotool ripgrep rust-src docker playerctl yazi xsel fzf
+pacman --noconfirm -S git wget zsh neovim bashtop kitty make go python cargo rust-analyzer lazygit npm unzip awesome-terminal-fonts xdotool ripgrep rust-src docker playerctl yazi xsel fzf
 
 
 if [ ! -d $CONFIG_DIR ]; then
