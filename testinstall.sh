@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# curl -s https://raw.githubusercontent.com/rromanowicz/dotfiles/refs/heads/master/testinstall.sh | sh
+
 ##################################################################################
 ############### FUNCTIONS ########################################################
 ##################################################################################
@@ -29,12 +31,12 @@ function get_nerdfont {
 
 
 log "Installing packages."
-# sudo pacman -Sy
-# sudo pacman -noconfirm -S git zsh neovim bashtop kitty make go python cargo dunst lazygit rofi npm unzip awesome-terminal-fonts xdotool ripgrep rust-src docker playerctl yazi xsel fzf bluetoothctl
+sudo pacman -Sy
+sudo pacman -noconfirm -S git zsh neovim bashtop kitty make go python cargo dunst lazygit rofi npm unzip awesome-terminal-fonts xdotool ripgrep rust-src docker playerctl yazi xsel fzf bluetoothctl
 
 
 log "Cloning dotfiles."
-# git clone https://github.com/rromanowicz/dotfiles ~/git/dotfiles
+git clone https://github.com/rromanowicz/dotfiles ~/git/dotfiles
 
 
 DOTFILES_DIR=~/git/dotfiles/
